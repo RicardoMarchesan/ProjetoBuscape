@@ -10,7 +10,7 @@
 
         <title>Busca Buscapé</title>
 
-        <link rel="icon" href="../Include/images/buscape.ico">  
+        <link rel="icon" href="../Include/images/buscape.ico">
 
         <link href="../Include/css/index.css" rel="stylesheet">
     </head>
