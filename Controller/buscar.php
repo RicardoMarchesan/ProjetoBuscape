@@ -8,19 +8,21 @@
 
     $objBuscaPeApi = new Apiki_Buscape_API($applicationID, $sourceID);
     $objBuscaPeApi->setSandbox();
-    
+
     try {
 //
 //	// Busca uma lista de categorias
 //	//echo $objBuscaPeApi->findCategoryList();
 //
 //	// Busca uma lista de produtos por palavras-chave
-//	// echo $objBuscaPeApi->findProductList( array( 'keyword' => 'Celular,Nokia' ) );
+    echo "BUSCAREI: ".$_POST['filtro'];
+	  // $produto = $objBuscaPeApi->findProductList( array( 'keyword' => $_POST['filtro'] ) );
+
 //
 //	// Busca ofertas a partir de palavras-chave
-	//echo $objBuscaPeApi->findOfferList( array( 'keyword' => 'iPhone 5' ) );
-        echo "BUSCAREI: ".$_POST['filtro'];
-	//echo $objBuscaPeApi->findProductList( array( 'keyword' => $_POST['filtro'] ) );
+	     $produto = $objBuscaPeApi->findOfferList( array( 'keyword' => $_POST['filtro'] ) );
+       echo $produto;
+
 
 //
 //	// Busca os dados de uma oferta a partir do seu ID
@@ -30,13 +32,13 @@
 //	// echo $objBuscaPeApi->findOfferList( array( 'barcode' => 9788575222379 ) );
 //
 //	// Busca ofertas a partir de palavras-chave e coordenadas geográficas
-//	// echo $objBuscaPeApi->findOfferList( array( 
-//	// 	'keyword'   => 'celular', 
-//	// 	'latitude'  => '-23.557362', 
-//	// 	'longitude' => '-46.660927', 
-//	// 	'radius'    => 400 // metros 
+//	// echo $objBuscaPeApi->findOfferList( array(
+//	// 	'keyword'   => 'celular',
+//	// 	'latitude'  => '-23.557362',
+//	// 	'longitude' => '-46.660927',
+//	// 	'radius'    => 400 // metros
 //	// ) );
-//	
+//
 //	// Busca os produtos mais clicados da última semana
 //	//echo $objBuscaPeApi->topProducts();
 //
@@ -48,7 +50,7 @@
 //
 //	// Busca os detalhes de uma loja a partir de seu ID
 //	//echo $objBuscaPeApi->viewSellerDetails( array( 'sellerId' => 335525 ) );
-//	
+//
 } catch( Exception $e ) {
 	echo $e->getMessage();
 }
