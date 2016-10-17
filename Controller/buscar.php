@@ -15,7 +15,7 @@
 //	//echo $objBuscaPeApi->findCategoryList();
 //
 //	// Busca uma lista de produtos por palavras-chave
-    echo "BUSCAREI: ".$_POST['filtro'];
+    // echo "BUSCAREI: ".$_POST['filtro'];
 	  // $produto = $objBuscaPeApi->findProductList( array( 'keyword' => $_POST['filtro'] ) );
 
 //

@@ -37,7 +37,24 @@ session_start();
 
   <body>
 
-   
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+       <div class="container-fluid">
+         <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="index.php">Retorno Buscapé</a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+           <form class="navbar-form navbar-right" method="post" action="../Controller/buscar.php">
+             <input type="text" name="filtro" placeholder="Nova Pesquisa">
+           </form>
+         </div>
+       </div>
+     </nav>
 
     <div class="container-fluid">
       <div class="row">
@@ -89,7 +106,7 @@ session_start();
                   <td>Sed</td>
                   <td>nisi</td>
                 </tr>
-                
+
                 <!-- QUERO LER O XML E MOSTRAR -->
                 //<?php
 //                foreach $array_itens_xml as $itens {
@@ -102,9 +119,9 @@ session_start();
 //                    echo"</tr>";
 //                }
 //                ?>
-                
-                
-                
+
+
+
                 <tr>
                   <td>1,005</td>
                   <td>Nulla</td>
@@ -201,4 +218,3 @@ session_start();
     <script src="../Include/css/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
