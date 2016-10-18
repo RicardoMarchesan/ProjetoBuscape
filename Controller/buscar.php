@@ -8,6 +8,7 @@
 
     $objBuscaPeApi = new Apiki_Buscape_API($applicationID, $sourceID);
     $objBuscaPeApi->setSandbox();
+    $objBuscaPeApi->setFormat('json');
 
     try {
 //
@@ -21,7 +22,9 @@
 //
 //	// Busca ofertas a partir de palavras-chave
 	     $produto = $objBuscaPeApi->findOfferList( array( 'keyword' => $_POST['filtro'] ) );
+       $categories = json_decode($produto);
        echo $produto;
+
 
 
 //
