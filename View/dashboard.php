@@ -1,6 +1,8 @@
 <?php
 session_start();
+$_SESSION['itens'];
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +13,9 @@ session_start();
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Dashboard">
     <meta name="author" content="Adm">
-    <link rel="icon" href="../Include/images/favicon.ico">
+    <link rel="icon" href="../Include/images/buscape.ico">
 
-    <title>Tela de Administração</title>
+    <title>Resultado da Busca</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../Include/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -63,142 +65,34 @@ session_start();
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
+                  <th>Nome</th>
+                  <th>Imagem</th>
+                  <th>Valor</th>
+                  <th>Loja</th>
+                  <th>Ver Oferta</th>
+               </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
 
-                <!-- QUERO LER O XML E MOSTRAR -->
-                //<?php
-//                foreach $array_itens_xml as $itens {
-//                    echo"<tr>";
-//                    echo"  <td>".$item->codigo."</td>";
-//                    echo"  <td>".$item->nome."</td>";
-//                    echo"  <td>R$".$item->valor."</td>";
-//                    echo"  <td>-</td>";
-//                    echo"  <td>-</td>";
-//                    echo"</tr>";
-//                }
-//                ?>
+                <!-- Leitura Json -->
 
+              <?php
+                $itemaqui = $_SESSION['itens'];
+                $jsonObj = json_decode($itemaqui);
+                $produtos = $jsonObj->offer;
+                // echo $produtos;
+                foreach($produtos as $o) {
+                  echo"<tr>";
+                  echo"  <td>".$o->offer->offershortname."</td>";
+                  echo"  <td>"."<img src=".$o->offer->thumbnail->url.">"."</td>";
 
+                  echo"  <td>R$".$o->offer->price->value."</td>";
+                  echo"  <td>".$o->offer->seller->sellername."</td>";
+                  echo"  <td>"."<button onclick=window.location.href='".$o->offer->links->link->url."'>Ir para anuncio</button>". "</td>";
+                  echo"</tr>";
+                }
+              ?>
 
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
               </tbody>
             </table>
           </div>

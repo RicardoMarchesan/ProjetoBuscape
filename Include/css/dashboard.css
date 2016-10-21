@@ -84,7 +84,9 @@ body {
   margin-top: 0;
 }
 
-
+tr{
+  align-items: center;
+}
 /*
  * Placeholder dashboard ideas
  */
