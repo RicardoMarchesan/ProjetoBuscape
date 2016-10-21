@@ -76,7 +76,7 @@ class Apiki_Buscape_API {
 			throw new RuntimeException( 'A extensão CURL do PHP está desabilitada. Habilite-a para o funcionamento da classe.' );
 		}
 		// @codeCoverageIgnoreEnd
-		
+
 		if ( (bool) $lomadee ) {
 			$serviceName .= '/lomadee';
 		}
@@ -433,7 +433,7 @@ class Apiki_Buscape_API {
 			if ( empty( $args[ 'latitude' ] ) ){
 				throw new UnexpectedValueException( 'A latitude não pode ser uma string vazia' );
 			}
-		}		
+		}
 
 		if ( isset( $args[ 'longitude' ] ) ){
 			$args[ 'longitude' ] = trim( (string) $args[ 'longitude' ] );

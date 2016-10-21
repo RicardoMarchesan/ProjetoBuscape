@@ -3,7 +3,6 @@ session_start();
 $_SESSION['itens'];
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,12 +79,24 @@ $_SESSION['itens'];
                 $itemaqui = $_SESSION['itens'];
                 $jsonObj = json_decode($itemaqui);
                 $produtos = $jsonObj->offer;
-                // echo $produtos;
+
+                // Ordena os produtos
+
+                usort($produtos, function($a, $b) { //Sort the array using a user defined function
+                  return $a->offer->price->value < $b->offer->price->value ? -1 : 1; //Compare the scores
+                });
+
+                // Mostrar os produtos
+
                 foreach($produtos as $o) {
                   echo"<tr>";
                   echo"  <td>".$o->offer->offershortname."</td>";
-                  echo"  <td>"."<img src=".$o->offer->thumbnail->url.">"."</td>";
-
+                  if (isset($o->offer->thumbnail->url)){
+                    echo"  <td>"."<img src=".$o->offer->thumbnail->url.">"."</td>";
+                  }
+                  else{
+                    echo"  <td>"."<img src=../Include/imagens/sem-foto.jpg>"."</td>";
+                  }
                   echo"  <td>R$".$o->offer->price->value."</td>";
                   echo"  <td>".$o->offer->seller->sellername."</td>";
                   echo"  <td>"."<button onclick=window.location.href='".$o->offer->links->link->url."'>Ir para anuncio</button>". "</td>";

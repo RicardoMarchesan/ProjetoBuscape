@@ -14,7 +14,7 @@
     try {
 
 // Busca ofertas a partir de palavras-chave
-	     $array_itens_json = $objBuscaPeApi->findOfferList( array( 'keyword' => $_POST['filtro'] ) );
+	     $array_itens_json = $objBuscaPeApi->findOfferList( array( 'keyword' => $_POST['filtro']) );
        //$itens = json_decode($array_itens_json);
        $itens = $array_itens_json;
        $_SESSION['itens'] = $itens;
