@@ -99,7 +99,8 @@ $_SESSION['itens'];
                   }
                   echo"  <td>R$".$o->offer->price->value."</td>";
                   echo"  <td>".$o->offer->seller->sellername."</td>";
-                  echo"  <td>"."<button onclick=window.location.href='".$o->offer->links->link->url."'>Ir para anuncio</button>". "</td>";
+                  echo"  <td>"."<button onclick=window.location.href=>Ir para anuncio</button>". "</td>";
+                  // não estou usando porque não é um link válido retornado. $o->offer->links->link->url
                   echo"</tr>";
                 }
               ?>
